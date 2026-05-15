@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-finance-primary: #00FF94; /* Vivid Green accent for growth/finance */
+  --color-finance-secondary: #00D1FF; /* Tech blue */
+  --color-finance-dark: #0A0F14;
+  --color-finance-card: rgba(16, 24, 32, 0.7);
+
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@layer base {
+  body {
+    @apply bg-[#05070A] text-white antialiased selection:bg-finance-primary/30 selection:text-finance-primary leading-relaxed text-[16px] md:text-[18px];
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight font-bold;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-2xl border border-white/5;
+}
+
+.grad-text {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-finance-primary via-finance-secondary to-white;
+}
+
+.finance-grad {
+  @apply bg-linear-to-br from-finance-primary/20 via-finance-secondary/10 to-transparent;
+}
